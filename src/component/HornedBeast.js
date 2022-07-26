@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react';
 import react from 'react';
 import Button from 'react-bootstrap/Button';
-import MyCard from './Card';
+import Card from 'react-bootstrap/Card';
 class HornedBeast extends react.Component {
     constructor(props) {
-
         super(props);
         this.state = {
             favorited: 0
@@ -16,20 +15,17 @@ class HornedBeast extends react.Component {
         });
     }
     render() {
-
-
         return (
-            <div>
-                <MyCard { Body : {
-                    Title: { this.props.title } 
-                         Text: { this.props.description } 
 
-                    }}
-               
-                    
-                    />
-                />
-            </div>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={this.props.imgUrl } onClick={this.Handlclick} />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                        {this.props.description} </Card.Text>
+                    <Button  variant="primary">{this.state.favorited}</Button>
+                </Card.Body>
+            </Card>
         )
     }
 }
