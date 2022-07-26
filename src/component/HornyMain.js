@@ -1,39 +1,22 @@
 import react from 'react';
 import HornedBeast from './HornedBeast';
+import data from './data.json';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class HornyMain extends react.Component {
-    constructor(props) {
-        super(props);
-        this.ReadJson();
-    }
-
-    ReadJson() {
-        const jData = require('../Data/Data.json');
-        const Jsonarr = [];
-
-        jData.forEach((element, index) => {
-            Jsonarr.push(<HornedBeast title={element.title} imageUrl={element.image_url} description={element.description}
-                key={index} />);
-        });
-    }
-
-
     render() {
         return (
-            <>
-              
-                <div className='animaldiv'>
-                    <p> test</p>
-                    <HornedBeast title={"title1"} srcimg={'src/assets/animal1.jpg'} name={"Animal1"} disc=" this is animal 1" />
-                </div>
-                <div className='animaldiv'>
-                    <HornedBeast title={"title2"} srcimg={'src/assets/animal1.jpg'} name={"Animal2"} disc=" this is animal 2" />
-                </div>
-            </>)
-
+            <Row xs={1} md={3} className="g-4">
+                {
+                    data.map(item =>
+                        <Col>
+                            <HornedBeast title={item.title} imgUrl={item.image_url} description={item.description} />
+                        </Col>
+                    )
+                }
+            </Row>
+        )
     }
 }
-
-
-
 export default HornyMain;
