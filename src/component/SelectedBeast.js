@@ -7,27 +7,28 @@ class SelectedBeast extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            favorited: 0
+
         }
     }
 
 
     render() {
         return (
-<>
-            {/* <Modal show={show} onHide={handleClose}>
+
+            <Modal show={this.props.show} onHide={this.props.handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Horn Beast</Modal.Title>
+                    <Modal.Title>{this.props.selectedBeast.title}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>This is est Modal</Modal.Body>
+                <Modal.Body>
+                    <img scr={this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title}></img>
+                    {this.props.selectedBeast.description}</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={this.props.handleClose}>
                         Close
                     </Button>
-                   
                 </Modal.Footer>
-            </Modal> */}
-            </>
+            </Modal>
+
         )
     }
 }

@@ -14,19 +14,20 @@ class HornedBeast extends react.Component {
         this.setState({
             favorited: this.state.favorited + 1
         });
+        this.props.displayModal(this.props.data);
         this.setState({ showModal: true });
     }
     render() {
         return (
 
-            <Card style={{ width: '18rem' }}>
-                <Card.Img height="180" weidth="286" variant="top"  src={this.props.imgUrl}   
-                 />
+            <Card style={{ width: '18rem' }} onClick={this.Handlclick} >
+                <Card.Img height="180" weidth="286" variant="top" src={this.props.image_url}
+                />
                 <Card.Body>
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Text>
                         {this.props.description} </Card.Text>
-                    <Button onClick={this.Handlclick} variant="primary">{this.state.favorited} ❤</Button>
+                    <Button variant="primary">{this.state.favorited} ❤</Button>
                 </Card.Body>
             </Card>
         )
