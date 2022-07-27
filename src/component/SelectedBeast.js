@@ -20,7 +20,7 @@ class SelectedBeast extends React.Component {
                     <Modal.Title>{this.props.selectedBeast.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img scr={this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title}></img>
+                    <img src= {this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title}></img>
                     {this.props.selectedBeast.description}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.props.handleClose}>
