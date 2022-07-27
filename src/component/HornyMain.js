@@ -4,7 +4,22 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 class HornyMain extends react.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            arr: []
+        }
+    }
+    setarr = () => {
+        this.setState({
+            arr: this.props.allBeast.filter(horn => horn == 1)
+        });
+        console.log(this.props.allBeast);
+        console.log(this.state.arr);
+
+    }
     render() {
+
         return (
             <Row xs={1} md={3} className="g-4">
                 {
