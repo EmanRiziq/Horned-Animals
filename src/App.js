@@ -2,26 +2,48 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Headerc from './component/headerc';
 import HornyMain from './component/HornyMain';
 import Footerc from './component/footerc';
-import { useState } from "react"
+import React from "react"
 import SelectedBeast from './component/SelectedBeast';
+import data from './component/data.json';
+import Formc from './component/Formc';
 
-function App() {
-  const [openModal, setOPenModal] = useState(false);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allBeast: data,
+      selectedBeast: {},
+      showModal: false,
+      hornsNum: 2
+    }
+  }
+  displayModal = (beast) => {
+    this.setState({
+      selectedBeast: beast,
+      showModal: true
 
-  return (
-    <div className="App">
-      <header className="App-header">
+    })
+  }
+  handleClose = () => {
+    this.setState({ showModal: false })
+  }
+  getHornsNum = (horns) => {
+    this.setState({ hornsNum: horns })
+
+    console.log(horns);
+  }
+  render() {
+    return (
+      <div >
+        <h1>test</h1>
         <Headerc />
-        <button
-          onClick={() => { setOPenModal(true) }}
-        >Click me
-        </button>
-        {openModal && <SelectedBeast closeModal={setOPenModal}/>}
-        <HornyMain />
+        <Formc getHornsNum={this.getHornsNum} />
+        <HornyMain allBeast={this.state.allBeast} displayModal={this.displayModal} hornsNum={this.state.hornsNum} />
+        <SelectedBeast show={this.state.showModal} handleClose={this.handleClose} selectedBeast={this.state.selectedBeast} />
         <Footerc />
-      </header>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
