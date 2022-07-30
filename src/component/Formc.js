@@ -3,7 +3,6 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-
 class Formc extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +22,7 @@ class Formc extends React.Component {
         return (
             <>
                 <Form onSubmit={this.handleSubmit}>
-                    {/* <Form.Group className="mb-3"> */}
+                    <Form.Group className="mb-3">
                         <Form.Label htmlFor="HornsNum">Choose a number</Form.Label>
                         <Form.Select id="HornsNum">
                             <option value="1">1</option>
@@ -32,7 +31,7 @@ class Formc extends React.Component {
                             <option value="4">4</option>
 
                         </Form.Select>
-                    {/* </Form.Group> */}
+                    </Form.Group>
 
                     <Button variant="primary" type="submit">
                         Submit
