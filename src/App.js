@@ -32,13 +32,20 @@ class App extends React.Component {
 
     console.log(horns);
   }
+  filterBeast = (e) => {
+    const hornNum = parseInt(e.target.value);
+    let filteredData = data;
+    if (hornNum) {
+      filteredData = data.filter(item => item.horns === hornNum)
+    }
+    this.setState({ allBeast: filteredData })
+  }
   render() {
     return (
       <div >
-        <h1>test</h1>
         <Headerc />
-        <Formc getHornsNum={this.getHornsNum} />
-        <HornyMain allBeast={this.state.allBeast} displayModal={this.displayModal} hornsNum={this.state.hornsNum} />
+        {/* <Formc getHornsNum={this.getHornsNum} /> */}
+        <HornyMain allBeast={this.state.allBeast} displayModal={this.displayModal} hornsNum={this.state.hornsNum} filterBeast={this.filterBeast} />
         <SelectedBeast show={this.state.showModal} handleClose={this.handleClose} selectedBeast={this.state.selectedBeast} />
         <Footerc />
       </div>
